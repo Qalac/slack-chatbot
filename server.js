@@ -13,10 +13,10 @@ app.use('/', routes);
 mongoose.connect(DB_URL, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(()=> {
         console.log('Database connected successfully')
-        app.listen(PORT, () =>{
-            console.log(`Running on port ${PORT}`)
-        })
-
     }).catch(err => {
         console.log('error connecting to database')
     })
+
+app.listen(PORT, () =>{
+    console.log(`Running on port ${PORT}`)
+})
