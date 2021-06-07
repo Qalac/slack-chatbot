@@ -15,5 +15,6 @@ var postResponses = async (req, res, next) => {
 
 
 module.exports = {
-    getResponses: getResponses
+    getResponses: getResponses,
+    postResponses: postResponses
 }
