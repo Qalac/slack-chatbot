@@ -9,7 +9,6 @@ const routes = require('./views/routes')
 
 app.use('/', routes);
 
-
 mongoose.connect(DB_URL, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(()=> {
         console.log('Database connected successfully')
