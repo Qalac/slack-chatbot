@@ -6,7 +6,8 @@ var app = express();
 const {PORT, DB_URL} = require('./constants');
 const routes = require('./views/routes') 
 
-
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
 app.use('/', routes);
 
 mongoose.connect(DB_URL, {useNewUrlParser: true, useUnifiedTopology: true})

@@ -1,11 +1,14 @@
 const express = require("express")
 const router = express.Router()
-const {postResponses, getResponses} = require('../contolllers/middlewares');
+const {slashResponse, getResponses} = require('../contolllers/middlewares');
 
 router.get("/responses/get", getResponses)
-router.post("/responses/post", postResponses)
+router.post("/response/slash", slashResponse)
 router.get("", function(req, res, next){
-    res.send("next step is to integrate the bot")
+    res.send("slash response deployed")
 })
 
 module.exports = router
+
+
+
