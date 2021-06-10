@@ -9,7 +9,7 @@ var slashResponse = async(req, res, next) => {
     res.send(
         {
             "response_type": "in_channel",
-            "text": "It's 80 degrees right now."
+            "text": "Welcome. How are you doing?"
         }
     );
 }
