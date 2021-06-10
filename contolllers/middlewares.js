@@ -10,7 +10,7 @@ var slashResponse = async(req, res, next) => {
         {
             "response_type": "in_channel",
             "text": "Welcome. How are you doing?",
-            "challenge": "b05febc5dsWCjjnDmFcCw4qgiXoB1SEtvfr0kR4Wl21QDKomVynP"
+            "challenge": req.body.challenge
         }
     );
 }
