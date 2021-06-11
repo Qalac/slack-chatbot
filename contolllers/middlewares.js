@@ -9,11 +9,28 @@ var slashResponse = async(req, res, next) => {
     res.send(
         {
             "response_type": "in_channel",
-            "text": "Welcome. How are you doing?",
-            "challenge": req.body.challenge
+            "text": `Welcome ${req.body.user_name}. How are you doing?`,
         }
     );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var dialogueResponse = async(req, res, next) => {
+
+// }
+
 
 module.exports = {
     getResponses: getResponses,
