@@ -1,12 +1,11 @@
 const express = require("express")
 const router = express.Router()
-const {slashResponse, getResponses} = require('../contolllers/middlewares');
+const {slashResponse, getResponses, dialogueResponse} = require('../contolllers/middlewares');
 
 router.get("/responses/get", getResponses)
 router.post("/response/slash", slashResponse)
-router.get("", function(req, res, next){
-    res.send("slash response deployed")
-})
+router.post("/response/event", dialogueResponse)
+
 
 module.exports = router
 
