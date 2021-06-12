@@ -15,8 +15,11 @@ var slashResponse = async(req, res, next) => {
     );
 }
 
+
 var eventResponse = async(req, res, next) => {
-    console.log('working')
+    res.send({
+        status: "ok"
+    })
 }
 
 
