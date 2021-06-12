@@ -15,11 +15,10 @@ var slashResponse = async(req, res, next) => {
     );
 }
 
-
 var eventResponse = async(req, res, next) => {
     res.send({
-        status: "ok"
-    })
+        "challenge": req.body.challenge
+    });
 }
 
 
