@@ -15,12 +15,13 @@ var slashResponse = async(req, res, next) => {
     );
 }
 
-var eventResponse = async(req, res, next) => {
-    res.send({
-        "challenge": req.body.challenge
-    });
-}
+let url = "https://hooks.slack.com/services/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"
 
+var eventResponse = async(req, res, next) => {
+    axios.post(url, {
+        "text": "Event acknowledged"
+    })
+}
 
 module.exports = {
     getResponses: getResponses,
