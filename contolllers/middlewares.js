@@ -15,6 +15,11 @@ var slashResponse = async(req, res, next) => {
     );
 }
 
+var eventResponse = async(req, res, next) => {
+    console.log('working')
+}
+
+
 module.exports = {
     getResponses: getResponses,
     slashResponse: slashResponse,
