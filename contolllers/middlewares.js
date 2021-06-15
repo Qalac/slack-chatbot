@@ -1,6 +1,7 @@
 const modelInstance = require('../model/model');
 const { App } = require('@slack/bolt');
-const { SIGNING_SECRET, BOT_TOKEN } = require('../constants');
+const { SIGNING_SECRET, BOT_TOKEN, WEBHOOK } = require('../constants');
+const axios = require('axios');
 
 
 const app = new App({
@@ -23,16 +24,15 @@ var slashResponse = async(req, res, next) => {
     );
 }
 
-var eventResponse = (req, res, next) => {
-    app.message("Hello", async({ command, say}) => {
-        try {
-            say("Welcome. How areyou doing?");
-    
-        }
-        catch(error) {
-            console.log("err")
-        }
-    })
+var eventResponse = async(req, res, next) => {
+    axios.post(WEBHOOK, {
+        text: 'Williams'
+      })
+      .then((response) => {
+        console.log(req.body);
+      }, (error) => {
+        console.log(error);
+      });
 }
 
 
