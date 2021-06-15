@@ -1,5 +1,13 @@
 const modelInstance = require('../model/model');
-const axios = require('axios');
+const { App } = require('@slack/bolt');
+const { SIGNING_SECRET, BOT_TOKEN } = require('../constants');
+
+
+const app = new App({
+    token: BOT_TOKEN,
+    signingSecret: SIGNING_SECRET
+});
+
 
 var getResponses = async(req, res, next) => {
     var responses = await modelInstance.find({}, 'feeling availability hobbies digits_on_number_scale')
@@ -15,16 +23,18 @@ var slashResponse = async(req, res, next) => {
     );
 }
 
-let url = "https://hooks.slack.com/services/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"
-
-var eventResponse = async(req, res, next) => {
-    axios.post(url, {
-        "text": "Event acknowledged"
-    })
-    res.send({
-        "challenge": req.body.challenge
+var eventResponse = (req, res, next) => {
+    app.message("Hello", async({ command, say}) => {
+        try {
+            say("Welcome. How areyou doing?");
+    
+        }
+        catch(error) {
+            console.log("err")
+        }
     })
 }
+
 
 module.exports = {
     getResponses: getResponses,

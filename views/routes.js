@@ -5,6 +5,9 @@ const {slashResponse, getResponses, eventResponse} = require('../contolllers/mid
 router.get("/responses/get", getResponses)
 router.post("/response/slash", slashResponse)
 router.post("/response/event", eventResponse)
+router.get("", (req, res) => {
+    res.send("Event subscription is successful");
+})
 
 
 module.exports = router
