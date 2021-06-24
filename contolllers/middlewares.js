@@ -25,14 +25,7 @@ var slashResponse = async(req, res, next) => {
 }
 
 var eventResponse = async(req, res, next) => {
-    axios.post(WEBHOOK, {
-        text: 'Williams'
-      })
-      .then((response) => {
-        console.log(req.body);
-      }, (error) => {
-        console.log(error);
-      });
+
 }
 
 
