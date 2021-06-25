@@ -16,6 +16,12 @@ const app = new App({
     signingSecret: SIGNING_SECRET
   });
 
+
+app.message(/^(hi|hello|hey).*/, async ({ message, say }) => {
+    await say(`Hello, <@${message.user}>`);
+});
+
+
 (async () => {
     await app.start(PORT || 3000);
     console.log('⚡️ Bolt app is running!');
@@ -28,5 +34,3 @@ mongoose.connect(DB_URL, {useNewUrlParser: true, useUnifiedTopology: true})
     }).catch(err => {
         console.log('error connecting to database')
     })
-
-server.listen(PORT)
