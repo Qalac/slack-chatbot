@@ -28,15 +28,11 @@ app.command('/hi', async ({ command, ack, say }) => {
   });
 
 
-(async () => {
-    await app.start(PORT || 3000);
-    console.log('⚡️ Bolt app is running!');
-})();
-
-
 mongoose.connect(DB_URL, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(()=> {
         console.log('Database connected successfully')
     }).catch(err => {
         console.log('error connecting to database')
     })
+
+server.listen(PORT);
