@@ -21,6 +21,12 @@ app.message(/^(hi|hello|hey).*/, async ({ message, say }) => {
     await say(`Hello, <@${message.user}>`);
 });
 
+app.command('/hi', async ({ command, ack, say }) => {
+    await ack();
+  
+    await say(`${command.text}`);
+  });
+
 
 (async () => {
     await app.start(PORT || 3000);
