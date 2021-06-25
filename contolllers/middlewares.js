@@ -1,5 +1,5 @@
 const modelInstance = require('../model/model');
-const { SIGNING_SECRET, BOT_TOKEN } = require('../constants');
+const { SIGNING_SECRET, BOT_TOKEN, PORT } = require('../constants');
 const { App } = require('@slack/bolt');
 
 const app = new App({
@@ -22,10 +22,13 @@ var slashResponse = async(req, res, next) => {
     );
 }
 
-var eventResponse = app.message(/^(hi|hello|hey).*/, async ({ message, say}) => {
-    await say(`Hello, <@${message.user}>`)
+var eventResponse = async(req, res, () => {
+    await app.start(PORT);
+    app.message(/^(hi|hello|hey).*/, async ({ message, say}) => {
+        await say(`Hello, <@${message.user}>`);
+        app.stop();
+    });
 });
-
 
 
 module.exports = {
