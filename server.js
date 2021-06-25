@@ -29,4 +29,4 @@ mongoose.connect(DB_URL, {useNewUrlParser: true, useUnifiedTopology: true})
         console.log('error connecting to database')
     })
 
-// server.listen(PORT)
+server.listen(PORT)

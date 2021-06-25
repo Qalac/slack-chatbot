@@ -24,5 +24,3 @@ module.exports = {
     slashResponse: slashResponse,
     eventResponse: eventResponse
 }
-
-
