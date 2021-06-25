@@ -9,10 +9,20 @@ const app = new App({
   });
 
 
-app.message(/^(hi|hello|hey).*/, async ({ context, say }) => {
-    const greeting = context.matches[0];
-    await say(`${greeting}, how are you?`);
+app.command("/hello", async ({ command, ack, say }) => {
+    try {
+        await ack();
+        say("slash command is working");
+    }
+    catch(err) {
+        console.log(err);
+    }
 });
+
+
+(async () => {
+    await app.start(PORT);
+})();
 
 mongoose.connect(DB_URL, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(()=> {
@@ -21,19 +31,3 @@ mongoose.connect(DB_URL, {useNewUrlParser: true, useUnifiedTopology: true})
         console.log('error connecting to database')
     })
 
-
-(async () => {
-    await app.start(PORT);
-    console.log('⚡️ Bolt app is running!');
-})();
-
-
-
-// var slashResponse = async(req, res, next) => {
-//     res.send(
-//         {
-//             "response_type": "in_channel",
-//             "text": `Welcome <@${req.body.user_name}>. How are you doing?`,
-//         }
-//     );
-// }
