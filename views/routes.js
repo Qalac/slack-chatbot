@@ -1,10 +1,13 @@
 const express = require("express")
-const router = express.Router()
+const router = express.Router();
 const {slashResponse, getResponses, eventResponse} = require('../contolllers/middlewares');
 
 router.get("/responses/get", getResponses)
+
 router.post("/response/slash", slashResponse)
-router.get("/response/event", eventResponse)
+
+router.post("/slack/events", eventResponse)
+
 router.get("", (req, res) => {
     res.send("Event subscription is a success");
 })

@@ -1,5 +1,5 @@
 const modelInstance = require('../model/model');
-const { SIGNING_SECRET, BOT_TOKEN, WEBHOOK } = require('../constants');
+// const { SIGNING_SECRET, BOT_TOKEN, WEBHOOK } = require('../constants');
 
 var getResponses = async(req, res, next) => {
     var responses = await modelInstance.find({}, 'feeling availability hobbies digits_on_number_scale')
@@ -15,8 +15,6 @@ var slashResponse = async(req, res, next) => {
     );
 }
 
-
-
 var eventResponse = async(req, res, next) => {
 
 }
@@ -26,3 +24,5 @@ module.exports = {
     slashResponse: slashResponse,
     eventResponse: eventResponse
 }
+
+

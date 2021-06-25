@@ -1,14 +1,26 @@
 var mongoose = require('mongoose');
 var express = require('express');
 var bodyParser = require('body-parser');
-var app = express();
+var server = express();
 
-const {PORT, DB_URL, BOT_TOKEN} = require('./constants');
+const { App } = require('@slack/bolt');
+const {PORT, DB_URL, BOT_TOKEN, SIGNING_SECRET} = require('./constants');
 const routes = require('./views/routes') 
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.json());
-app.use('/', routes);
+server.use(bodyParser.urlencoded({ extended: true }));
+server.use(express.json());
+server.use('/', routes);
+
+const app = new App({
+    token: BOT_TOKEN,
+    signingSecret: SIGNING_SECRET
+  });
+
+(async () => {
+    await app.start(PORT || 3000);
+    console.log('⚡️ Bolt app is running!');
+})();
+
 
 mongoose.connect(DB_URL, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(()=> {
@@ -17,7 +29,4 @@ mongoose.connect(DB_URL, {useNewUrlParser: true, useUnifiedTopology: true})
         console.log('error connecting to database')
     })
 
-
-app.listen(PORT, () =>{
-    console.log(`Running on port ${PORT}`)
-})
+// server.listen(PORT)
