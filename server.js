@@ -20,7 +20,7 @@ app.command("/hello", async ({ command, ack, say }) => {
 });
 
 
-channel_id = ""
+// channel_id = ""
 
 // app.event('app_mention', async ({ event, client }) => {
 //   try {
