@@ -12,7 +12,7 @@ const app = new App({
 app.command("/hello", async ({ command, ack, say }) => {
     try {
         await ack();
-        say("slash command is working");
+        say(` Welcome <@${command.user_name}. How are you doing?`);
     }
     catch(err) {
         console.log(err);
