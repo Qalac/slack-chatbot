@@ -12,7 +12,7 @@ const app = new App({
 app.command("/hello", async ({ command, ack, say }) => {
     try {
         await ack();
-        say(` Welcome <@${command.user_name}. How are you doing?`);
+        say(` Welcome <@${command.user_name}>. How are you doing?`);
     }
     catch(err) {
         console.log(err);
