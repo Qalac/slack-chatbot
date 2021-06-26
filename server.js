@@ -12,7 +12,7 @@ const app = new App({
 app.command("/hello", async ({ command, ack, say }) => {
     try {
         await ack();
-        say(` Welcome <@${command.channel_id}>. How are you doing?`);
+        say(` Welcome <@${command.user_name}>. How are you doing?`);
     }
     catch(err) {
         console.log(err);
@@ -20,25 +20,20 @@ app.command("/hello", async ({ command, ack, say }) => {
 });
 
 
-// channel_id = ""
+var channel_id = "C024623HDH8"
 
-// app.event('app_mention', async ({ event, client }) => {
-//   try {
-
-//     const result = await client.chat.postMessage({
-//       channel: ,
-//       text: `Welcome to the team, <@${event.user.id}>! 🎉 You can introduce yourself in this channel.`
-//     });
-//     console.log(result);
-//   }
-//   catch (error) {
-//     console.error(error);
-//   }
-// });
-
-
-
-
+app.event('app_mention', async ({ event, client }) => {
+  try {
+    const result = await client.chat.postMessage({
+      channel: channel_id,
+      text: `Welcome <@${event.username}>. 🎉 How are you doing?`
+    });
+    console.log(result);
+  }
+  catch (error) {
+    console.error(error);
+  }
+});
 
 
 
