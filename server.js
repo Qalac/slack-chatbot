@@ -26,7 +26,7 @@ app.event('app_mention', async ({ event, client }) => {
   try {
     const result = await client.chat.postMessage({
       channel: channel_id,
-      text: `Welcome <@${event.username}>. 🎉 How are you doing?`
+      text: `Welcome <@${event.user}>. 🎉 How are you doing?`
     });
     console.log(result);
   }
