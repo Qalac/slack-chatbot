@@ -14,7 +14,6 @@ app.command("/hello", async ({ command, ack, say }) => {
     try {
         await ack();
         say(`Welcome <@${command.user_name}>. How are you doing?`);
-        say(Datepicker)
     }
     catch(err) {
         console.log(err);
