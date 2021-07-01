@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var { App } = require('@slack/bolt');
 
 const {PORT, DB_URL, BOT_TOKEN, SIGNING_SECRET} = require('./constants');
-const {Datepicker} = require('./widgets');
+const {DatePicker, TimePicker} = require('./widgets');
 
 const app = new App({
     token: BOT_TOKEN,
@@ -21,20 +21,20 @@ app.command("/hello", async ({ command, ack, say }) => {
 });
 
 
-var channel_id = "C024623HDH8"
+// var channel_id = "C024623HDH8"
 
-app.event('app_mention', async ({ event, client }) => {
-  try {
-    const result = await client.chat.postMessage({
-      channel: channel_id,
-      text: `Welcome <@${event.user}>. 🎉 How are you doing?`
-    });
-    console.log(result);
-  }
-  catch (error) {
-    console.error(error);
-  }
-});
+// app.event('app_mention', async ({ event, client }) => {
+//   try {
+//     const result = await client.chat.postMessage({
+//       channel: channel_id,
+//       text: `Welcome <@${event.user}>. 🎉 How are you doing?`
+//     });
+//     console.log(result);
+//   }
+//   catch (error) {
+//     console.error(error);
+//   }
+// });
 
 
 
