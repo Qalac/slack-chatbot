@@ -9,7 +9,7 @@ const app = new App({
   });
 
 
-app.command("/hello", async ({ command, ack, say }) => {
+app.command("/hi", async ({ command, ack, say }) => {
     try {
         await ack();
         say(`Welcome <@${event.user}>. 🎉 How are you doing?`);
