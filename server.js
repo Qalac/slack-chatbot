@@ -14,7 +14,7 @@ var emotionChoice = EmotionPicker;
 app.command("/hello", async ({ command, ack, say }) => {
     try {
         await ack();
-        say(`Welcome <@${event.user}>. 🎉 How are you doing? \n ${emotionChoice}`);
+        say(`Welcome <@${event.user}>. 🎉 How are you doing? \n`+ emotionChoice);
     }
     catch(err) {
         console.log(err);
