@@ -13,7 +13,7 @@ const app = new App({
 app.command("/hello", async ({ command, ack, say }) => {
     try {
         await ack();
-        say(`Welcome <@${command.user_name}>. How are you doing? \n` + EmotionPicker);
+        say(EmotionPicker);
     }
     catch(err) {
         console.log(err);
