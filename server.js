@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var { App } = require('@slack/bolt');
 
 const {PORT, DB_URL, BOT_TOKEN, SIGNING_SECRET} = require('./constants');
+const {EmotionPicker} = require('./widgets');
 
 const app = new App({
     token: BOT_TOKEN,
@@ -12,25 +13,7 @@ const app = new App({
 app.command("/hello", async ({ command, ack, say }) => {
     try {
         await ack();
-        say({
-            blocks: [{
-                "type": "section",
-                "text": {
-                  "type": "mrkdwn",
-                  "text": "Pick a date for me to remind you"
-                },
-                "accessory": {
-                  "type": "datepicker",
-                  "action_id": "datepicker_remind",
-                  "initial_date": "2019-04-28",
-                  "placeholder": {
-                    "type": "plain_text",
-                    "text": "Select a date"
-                  }
-                }
-              }]
-        })
-        // say(`Welcome <@${command.user_name}>. How are you doing? \n ${EmotionPicker}`);
+        say(`Welcome <@${command.user_name}>. How are you doing? \n` + EmotionPicker);
     }
     catch(err) {
         console.log(err);
