@@ -42,7 +42,7 @@ export const TimePicker = {
     ]
 }
 
-export const EmotionPicker = {
+export let EmotionPicker = {
 	blocks: [
 		{
 			"type": "input",
