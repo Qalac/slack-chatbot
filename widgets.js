@@ -1,5 +1,5 @@
 export const DatePicker = {
-    "blocks": [
+    blocks: [
         {
             "type": "section",
             "text": {
@@ -21,7 +21,7 @@ export const DatePicker = {
 }
 
 export const TimePicker = {
-    "blocks": [
+    blocks: [
         {
 			"type": "section",
 			"text": {
@@ -43,7 +43,7 @@ export const TimePicker = {
 }
 
 export const EmotionPicker = {
-	"blocks": [
+	blocks: [
 		{
 			"type": "input",
 			"element": {
