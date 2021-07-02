@@ -1,4 +1,4 @@
-export const DatePicker = {
+let DatePicker = {
     blocks: [
         {
             "type": "section",
@@ -20,7 +20,7 @@ export const DatePicker = {
     ]
 }
 
-export const TimePicker = {
+let TimePicker = {
     blocks: [
         {
 			"type": "section",
@@ -42,7 +42,7 @@ export const TimePicker = {
     ]
 }
 
-export let EmotionPicker = {
+let EmotionPicker = {
 	blocks: [
 		{
 			"type": "input",
@@ -88,4 +88,10 @@ export let EmotionPicker = {
 			}
 		}
 	]
+}
+
+module.exports = {
+	EmotionPicker: EmotionPicker,
+	DatePicker: DatePicker,
+	TimePicker: TimePicker
 }
