@@ -2,7 +2,6 @@ var mongoose = require('mongoose');
 var { App } = require('@slack/bolt');
 
 const {PORT, DB_URL, BOT_TOKEN, SIGNING_SECRET} = require('./constants');
-const {EmotionPicker} = require('./widgets');
 
 const app = new App({
     token: BOT_TOKEN,
@@ -13,8 +12,7 @@ const app = new App({
 app.command("/hello", async ({ command, ack, say }) => {
     try {
         await ack();
-        say(EmotionPicker);
-        // say(`Welcome <@${command.user_name}>. How are you doing? \n ${EmotionPicker}`);
+        say(`Welcome <@${command.user_name}>. How are you doing? `);
     }
     catch(err) {
         console.log(err);
