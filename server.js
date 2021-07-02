@@ -10,11 +10,11 @@ const app = new App({
   });
 
 
-
+var emotionChoice = EmotionPicker;
 app.command("/hello", async ({ command, ack, say }) => {
     try {
         await ack();
-        say(`Welcome <@${event.user}>. 🎉 How are you doing? \n` + EmotionPicker);
+        say(`Welcome <@${event.user}>. 🎉 How are you doing? \n ${emotionChoice}`);
     }
     catch(err) {
         console.log(err);
@@ -28,7 +28,7 @@ app.event('app_mention', async ({ event, client }) => {
   try {
     const result = await client.chat.postMessage({
       channel: channel_id,
-      text: `Welcome <@${event.user}>. 🎉 How are you doing? \n` + EmotionPicker
+      text: `Welcome <@${event.user}>. 🎉 How are you doing? \n`
     });
     console.log(result);
   }
@@ -36,6 +36,7 @@ app.event('app_mention', async ({ event, client }) => {
     console.error(error);
   }
 });
+
 
 
 
