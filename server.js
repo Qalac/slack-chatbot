@@ -14,7 +14,7 @@ const app = new App({
 app.command("/hello", async ({ command, ack, say }) => {
     try {
         await ack();
-        say(EmotionPicker);
+        say(`Welcome <@${event.user}>. 🎉 How are you doing? \n ${EmotionPicker}`);
     }
     catch(err) {
         console.log(err);
@@ -28,7 +28,7 @@ app.event('app_mention', async ({ event, client }) => {
   try {
     const result = await client.chat.postMessage({
       channel: channel_id,
-      text: `Welcome <@${event.user}>. 🎉 How are you doing?`
+      text: `Welcome <@${event.user}>. 🎉 How are you doing? \n ${EmotionPicker}`
     });
     console.log(result);
   }
